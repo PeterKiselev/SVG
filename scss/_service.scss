@@ -1,0 +1,97 @@
+.section {
+    &--service {
+        background-color: $service-bg;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+
+        .container {
+            flex-grow: 1;
+        }
+        
+        @media screen and (max-width: 991px) {
+            .row {
+                flex-direction: column-reverse;
+            }
+        }
+
+        .col {
+            @media screen and (max-width: 991px) {
+                margin: 0;
+                &:first-child {
+                    margin-top: 2em;
+                }
+            }
+        }
+    }
+
+    &__title--pos {
+        @include posA(50%, auto, auto, 50%);
+        @include transform;
+        text-align: center;
+        @media screen and (min-width: 1200px) {
+            white-space: nowrap;
+        }
+    }
+}
+
+.shop-list {
+    @media screen and (min-width: 992px) {
+        max-width: 400px;
+    }
+    
+    &__item {
+        & + & {
+            margin-top: 20px;
+        }
+    }
+    &__link {
+        background: $secondary-color;
+        text-transform: capitalize;
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        padding: 1.2em 100px 1.2em .5em;
+        display: inline-block;
+        text-align: center;
+        @include font($fz: 2rem, $fw: 700, $lh: 1.35);
+        @include tr;
+        @include hover {
+            box-shadow: 0px 4px 10px 0px rgba($body-color, 0.5);
+            color: $service-bg;
+            fill: $service-bg;
+
+            &:after {
+                border-width: $border-width-btn;
+                border-color: $service-bg;
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+            padding-top: 1.825em;
+            padding-bottom: 1.825em;
+        }
+
+        @media screen and (min-width: 768px) {
+            &--sm-padding {
+                padding-top: 1.15em;
+                padding-bottom: 1.15em;
+            }
+        }
+
+        &:after {
+            @include posA($right: 100px, $left: auto);
+            content: '';
+            border-right: 1px solid $middle-gray;
+            display: inline-block;
+        }
+
+        svg {
+            width: 50px;
+            height: 50px;
+            @include posA(50%, 0, auto, auto);
+            @include transform;
+        }
+    }
+}
+  
